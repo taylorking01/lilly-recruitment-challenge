@@ -21,6 +21,12 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - Implemented error handling to prevent crashes.
 - Applied red styling to unavailable prices for clear distinction.
 
+### **Improving Frontend Design & Responsiveness**
+- Fixed disclaimer text overflow on smaller screens.
+- Centered "Medicine Tracker" title with better padding.
+- Improved spacing and alignment for a consistent style across all screen sizes.
+- Adjusted text sizes to ensure readability on different devices.
+
 ### **Planned Enhancements**
 
 - Add an HTML form to allow users to submit new medicines via the frontend.
@@ -33,6 +39,7 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - **Null Prices:** Ensured `null` values didn’t cause errors.
 - **Execution Stopping on Errors:** Wrapped logic to continue processing valid data.
 - **Initial Styling Issues:** Improved responsiveness and alignment using flexbox.
+- **Text Overflow:** Adjusted disclaimer box to wrap text properly.
 
 ## Evaluation
 
@@ -40,6 +47,7 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 ✅ Handled errors to ensure smooth user experience.
 ✅ Used Postman for API testing.
 ✅ Improved card styling and layout for better readability.
+✅ Enhanced site responsiveness and consistency.
 
 ### **Future Improvements**
 
@@ -48,4 +56,3 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 ⏳ Add pagination and an average price calculator.
 
 This challenge reinforced my understanding of **JavaScript, API handling, debugging, and responsive UI design**, while providing a structured approach to frontend-backend integration.
-
