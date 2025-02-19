@@ -26,7 +26,18 @@ body {
     padding: 0.5rem;
     z-index: 1000;
     font-weight: bold;
-    height: 30px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    white-space: normal; /* Allow text to wrap */
+}
+
+/* Center header text */
+header {
+    text-align: center;
+    padding: 20px;
 }
 
 /* ---- My custom styles below ---- */
@@ -87,6 +98,10 @@ main {
     .medicine-card {
         width: 90%; /* Make cards wider on small screens */
     }
+
+    .disclaimer {
+        font-size: 0.9rem; /* Reduce text size on smaller screens */
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -102,4 +117,5 @@ main {
     .medicine-card p {
         font-size: 1rem;
     }
+
 }
