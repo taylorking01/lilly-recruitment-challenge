@@ -29,4 +29,77 @@ body {
     height: 30px;
 }
 
-/* ---- Your custom styles below ---- */
+/* ---- My custom styles below ---- */
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Medicine Card */
+.medicine-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Card Hover Effect */
+.medicine-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Medicine Title */
+.medicine-card h3 {
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Medicine Price */
+.medicine-card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #008000; /* Green for price */
+    margin: 0;
+}
+
+/* Style for unavailable price */
+.price-unavailable {
+    color: red !important;
+    font-weight: bold;
+}
+
+/* ---- Responsive Design ---- */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .medicine-card {
+        width: 90%; /* Make cards wider on small screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .medicine-card {
+        width: 95%; /* Further adjust for smaller screens */
+        padding: 15px;
+    }
+
+    .medicine-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .medicine-card p {
+        font-size: 1rem;
+    }
+}

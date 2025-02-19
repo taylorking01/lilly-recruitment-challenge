@@ -18,12 +18,19 @@ function displayMedicines(medicines){
 
         const medElement = document.createElement("div"); //Creates a medicine element
         medElement.classList.add("medicine-card"); //Styling class for a medicine element
-        const priceText = (typeof med.price === "number") ? `£${med.price.toFixed(2)}` : "Price Not Available";
 
-        medElement.innerHTML = `
-        <h3>${med.name}</h3>
-        <p>${priceText}</p>
-    `;
-    main.appendChild(medElement); //Add the element to the page
+        const priceElement = document.createElement("p");
+        
+        if (typeof med.price === "number") {
+            priceElement.textContent = `£${med.price.toFixed(2)}`;
+            priceElement.style.color = "green"; // Ensure correct color for valid prices
+        } else {
+            priceElement.textContent = "Price Not Available";
+            priceElement.classList.add("price-unavailable"); // Apply red class for missing price
+        }
+
+        medElement.innerHTML = `<h3>${med.name}</h3>`;
+        medElement.appendChild(priceElement);
+        main.appendChild(medElement);
     });
 };
