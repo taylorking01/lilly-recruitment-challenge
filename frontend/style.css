@@ -65,7 +65,6 @@ main {
 /* Top Bar (Search & Sort) */
 .medicine-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 15px;
     background: #e0e0e0;
@@ -242,5 +241,22 @@ main {
 
     .medicine-card p {
         font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .medicine-header {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    #search-bar {
+        max-width: 150px; /* Restrict width to ensure buttons fit */
+        flex-grow: 1; /* Allow flexibility */
+    }
+
+    .header-icon {
+        padding: 6px 10px; /* Reduce button size */
+        font-size: 0.9rem; /* Reduce text size */
     }
 }
