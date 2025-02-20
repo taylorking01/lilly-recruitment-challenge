@@ -1,3 +1,6 @@
+let allMedicines = []; //Store all medicines globally
+let sortEnabled = false; //Track if sorting is active
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchMedicines();
 });
@@ -6,10 +9,31 @@ function fetchMedicines() {
     fetch("http://127.0.0.1:8000/medicines")
     .then(res => res.json())  //Convert response to JSON
     .then(data => {
-        displayMedicines(data.medicines); //Pass fetched data
+        allMedicines = data.medicines; //Store data globally
+        displayMedicines(data.medicines); //Ensure correct data is displayed
     })
     .catch(error => console.error("Error fetching medicines:", error));
 };
+
+function updateDisplayedMedicines(searchQuery = "") {
+    let filteredMedicines = allMedicines;
+
+    //Apply a search filter if there is a query
+    if (searchQuery) {
+        filteredMedicines = allMedicines.filter(med =>
+            med.name.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+        );
+    }
+
+    //Apply sorting if sorting enabled
+    if (sortEnabled) {
+        filteredMedicines = [...filteredMedicines].sort((a,b) =>
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+        );
+    }
+
+    displayMedicines(filteredMedicines);
+}
 
 function displayMedicines(medicines){
     const listContainer = document.querySelector(".medicine-list"); //Retrieve the main from doc
@@ -39,27 +63,18 @@ function displayMedicines(medicines){
 
 function filterMedicines() {
     const searchQuery = document.getElementById("search-bar").value.toLowerCase();
-
-    fetch("http://127.0.0.1:8000/medicines")
-    .then(res => res.json())
-    .then(data => {
-        const filteredMedicines = data.medicines.filter(med =>
-            med.name.toLowerCase().includes(searchQuery)
-        );
-        displayMedicines(filteredMedicines);
-    })
-    .catch(error => console.error("Error filtering medicines:", error));
+    updateDisplayedMedicines(searchQuery);
 }
 
-function sortMedicines() {
-    fetch("http://127.0.0.1:8000/medicines")
-    .then(res => res.json())
-    .then(data => {
-        // Sort medicines alphabetically (case-insensitive)
-        const sortedMedicines = data.medicines.sort((a, b) =>
-            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-        );
-        displayMedicines(sortedMedicines);
-    })
-    .catch(error => console.error("Error sorting medicines:", error));
+function toggleSort() {
+    sortEnabled = !sortEnabled; //Toggle sorting state
+    updateDisplayedMedicines(document.getElementById("search-bar").value); //Reapply sorting with the current search
+
+    //Update the button style
+    const sortButton = document.querySelector(".sort-icon");
+    if (sortEnabled) {
+        sortButton.classList.add("active-sort");
+    } else {
+        sortButton.classList.remove("active-sort");
+    }
 }

@@ -97,6 +97,12 @@ main {
     border-radius: 5px;
 }
 
+/* Sort Button When Active */
+.sort-icon.active-sort {
+    background: blue;
+    color: white;
+}
+
 .sort-icon:hover {
     background: #c0c0c0;
 }
