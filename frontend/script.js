@@ -10,8 +10,8 @@ function fetchMedicines() {
 };
 
 function displayMedicines(medicines){
-    const main = document.querySelector("main"); //Retrieve the main from doc
-    main.innerHTML = ""; //Clear the previous content of main
+    const listContainer = document.querySelector(".medicine-list"); //Retrieve the main from doc
+    listContainer.innerHTML = ""; //Clear the previous content of main
 
     medicines.forEach(med => {
         if(!med.name) return; //Skip iteration if name is null
@@ -31,6 +31,6 @@ function displayMedicines(medicines){
 
         medElement.innerHTML = `<h3>${med.name}</h3>`;
         medElement.appendChild(priceElement);
-        main.appendChild(medElement);
+        listContainer.appendChild(medElement);
     });
 };
