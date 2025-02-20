@@ -86,3 +86,41 @@ function openModal() {
 function closeModal() {
     document.getElementById("medicine-modal").style.display = "none";
 }
+
+document.getElementById("medicine-form").addEventListener("submit", function (event) {
+    event.preventDefault(); //Prevent default form submission
+
+    const name = document.getElementById("med-name").value.trim();
+    const price = parseFloat(document.getElementById("med-price").value);
+
+    //Validate the input
+    if(!name) {
+        alert("Medicine name cannot be empty.");
+        return;
+    }
+
+    if (isNaN(price) || price <= 0) {
+        alert("Please enter a valid price.");
+        return;
+    }
+
+    //Create a new medicine object
+    const newMedicine = { name, price }
+
+    //Send a POST request to create new medicine
+    fetch("http://127.0.0.1:8000/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams(newMedicine).toString()
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log("Medicine added:", data);
+        fetchMedicines(); //Refresh list after adding
+        closeModal(); //Close the modal
+        document.getElementById("medicine-form").reset(); //Clear the form
+    })
+    .catch(error => console.error("Error adding medicine:", error));
+})
