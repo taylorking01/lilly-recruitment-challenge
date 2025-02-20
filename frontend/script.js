@@ -78,3 +78,11 @@ function toggleSort() {
         sortButton.classList.remove("active-sort");
     }
 }
+
+function openModal() {
+    document.getElementById("medicine-modal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("medicine-modal").style.display = "none";
+}

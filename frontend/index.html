@@ -17,12 +17,31 @@
         <div class="medicine-container">
             <div class="medicine-header">
                 <input type="text" id="search-bar" placeholder="Search medicines..." oninput="filterMedicines()">
-                <span class="sort-icon" onclick="toggleSort()">A-Z</span>
+                <span class="header-icon" onclick="toggleSort()">A-Z</span>
+                <span class="header-icon" onclick="openModal()">+</span>
             </div>
             <div class="medicine-list">
                 <!-- Medicine cards will be dynamically inserted here -->
             </div>
         </div>
+
+        <!-- Modal for Adding New Medicine -->
+        <div id="medicine-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2>Add New Medicine</h2>
+                <form id="medicine-form">
+                    <label for="med-name">Name:</label>
+                    <input type="text" id="med-name" required>
+
+                    <label for="med-price">Price:</label>
+                    <input type="number" id="med-price" step="0.01" required>
+
+                    <button type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+
     </main>    
     <script src="script.js"></script>
 </body>
