@@ -1,5 +1,3 @@
-let allMedicines = []; //Store all medicines globally in this instance
-
 document.addEventListener("DOMContentLoaded", () => {
     fetchMedicines();
 });
@@ -8,8 +6,7 @@ function fetchMedicines() {
     fetch("http://127.0.0.1:8000/medicines")
     .then(res => res.json())  //Convert response to JSON
     .then(data => {
-        allMedicines = data.medicines; //Store the data in the global var
-        displayMedicines(allMedicines);  //Initially display all medicines
+        displayMedicines(data.medicines); //Pass fetched data
     })
     .catch(error => console.error("Error fetching medicines:", error));
 };
@@ -43,10 +40,13 @@ function displayMedicines(medicines){
 function filterMedicines() {
     const searchQuery = document.getElementById("search-bar").value.toLowerCase();
 
-    //Filter medicines that include the search query string
-    const filteredMedicines = allMedicines.filter(med =>
-        med.name.toLowerCase().includes(searchQuery)
-    );
-
-    displayMedicines(filteredMedicines); //Update the displayed list
+    fetch("http://127.0.0.1:8000/medicines")
+    .then(res => res.json())
+    .then(data => {
+        const filteredMedicines = data.filter(med =>
+            med.name.toLowerCase().includes(searchQuery)
+        );
+        displayMedicines(filteredMedicines);
+    })
+    .catch(error => console.error("Error filtering medicines:", error));
 }
