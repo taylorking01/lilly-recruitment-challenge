@@ -31,10 +31,19 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - Adjusted text sizes to ensure readability on different devices.
 - Added an interactive sorting feature (A-Z) with a toggle button.
 - Ensured sorting applies to both full and filtered medicine lists dynamically.
+- Ensured sorting and search bar remain properly aligned on smaller screens.
+- Positioned sorting and add buttons to the left while keeping the search bar responsive.
+
+### **Adding a Medicine (Form & Modal)**
+- Implemented a modal form for adding medicines.
+- Ensured the modal remains hidden by default and only appears when the "+" button is clicked.
+- Validated form inputs to prevent empty names or invalid prices.
+- Sent a `POST` request to the backend to store the new medicine.
+- Handled response updates to immediately refresh the medicine list after creation.
+- Fixed CORS-related issues to allow communication between frontend and backend.
 
 ### **Planned Enhancements**
 
-- Add an HTML form to allow users to submit new medicines via the frontend.
 - Implement an endpoint to compute and display the average price of medicines.
 
 ## Problems & Solutions
@@ -45,6 +54,8 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - **Initial Styling Issues:** Improved responsiveness and alignment using flexbox.
 - **Text Overflow:** Adjusted disclaimer box to wrap text properly.
 - **Search & Sorting Integration:** Ensured that sorting applies correctly even after filtering results.
+- **CORS Blocked Requests:** Enabled CORS in FastAPI to allow API communication.
+- **HTTP Fetch Typo:** Fixed incorrect request URL in `fetch()` to allow medicine creation.
 
 ## Evaluation
 
@@ -54,10 +65,11 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 ✅ Improved card styling and layout for better readability.
 ✅ Enhanced site responsiveness and consistency.
 ✅ Implemented real-time search filtering and dynamic sorting.
+✅ Added a modal form for adding new medicines.  
+✅ Fixed backend communication issues (CORS and HTTP requests). 
 
 ### **Future Improvements**
 
-⏳ Implement a user-friendly form for adding medicines.
 ⏳ Add an average price calculator.
 
 This challenge reinforced my understanding of **JavaScript, API handling, debugging, and responsive UI design**, while providing a structured approach to frontend-backend integration.
