@@ -119,6 +119,7 @@ document.getElementById("medicine-form").addEventListener("submit", function (ev
     .then(data => {
         console.log("Medicine added:", data);
         fetchMedicines(); //Refresh list after adding
+        fetchAveragePrice(); // Refresh the average price
         closeModal(); //Close the modal
         document.getElementById("medicine-form").reset(); //Clear the form
     })
