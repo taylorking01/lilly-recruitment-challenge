@@ -213,6 +213,20 @@ main {
     background: #006400;
 }
 
+/* Average Price Display */
+.average-price-container {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 15px auto;
+    padding: 10px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
 /* ---- Responsive Design ---- */
 @media screen and (max-width: 768px) {
     main {

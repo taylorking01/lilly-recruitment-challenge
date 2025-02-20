@@ -124,3 +124,20 @@ document.getElementById("medicine-form").addEventListener("submit", function (ev
     })
     .catch(error => console.error("Error adding medicine:", error));
 })
+
+function fetchAveragePrice() { 
+    fetch("http://127.0.0.1:8000/average_price")
+    .then(res => res.json())
+    .then(data => {
+    const averagePriceElement = document.getElementById("average-price");
+    averagePriceElement.textContent = data.average_price !== null 
+            ? `Average Price: £${data.average_price.toFixed(2)}` 
+            : "Average Price: No valid data available";
+    })
+    .catch(error => console.error("Error fetching average price:", error));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchMedicines();
+    fetchAveragePrice(); //Fetch the average price when the page loads
+});
