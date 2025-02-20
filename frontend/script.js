@@ -1,3 +1,5 @@
+let allMedicines = []; //Store all medicines globally in this instance
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchMedicines();
 });
@@ -5,7 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function fetchMedicines() {
     fetch("http://127.0.0.1:8000/medicines")
     .then(res => res.json())  //Convert response to JSON
-    .then(data => displayMedicines(data.medicines))  //Pass the data to display function
+    .then(data => {
+        allMedicines = data.medicines; //Store the data in the global var
+        displayMedicines(allMedicines);  //Initially display all medicines
+    })
     .catch(error => console.error("Error fetching medicines:", error));
 };
 
