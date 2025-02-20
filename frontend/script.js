@@ -43,10 +43,23 @@ function filterMedicines() {
     fetch("http://127.0.0.1:8000/medicines")
     .then(res => res.json())
     .then(data => {
-        const filteredMedicines = data.filter(med =>
+        const filteredMedicines = data.medicines.filter(med =>
             med.name.toLowerCase().includes(searchQuery)
         );
         displayMedicines(filteredMedicines);
     })
     .catch(error => console.error("Error filtering medicines:", error));
+}
+
+function sortMedicines() {
+    fetch("http://127.0.0.1:8000/medicines")
+    .then(res => res.json())
+    .then(data => {
+        // Sort medicines alphabetically (case-insensitive)
+        const sortedMedicines = data.medicines.sort((a, b) =>
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+        );
+        displayMedicines(sortedMedicines);
+    })
+    .catch(error => console.error("Error sorting medicines:", error));
 }
