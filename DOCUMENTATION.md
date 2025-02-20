@@ -41,10 +41,7 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - Sent a `POST` request to the backend to store the new medicine.
 - Handled response updates to immediately refresh the medicine list after creation.
 - Fixed CORS-related issues to allow communication between frontend and backend.
-
-### **Planned Enhancements**
-
-- Implement an endpoint to compute and display the average price of medicines.
+- Updated the average price dynamically after adding a new medicine.
 
 ## Problems & Solutions
 
@@ -54,7 +51,6 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 - **Initial Styling Issues:** Improved responsiveness and alignment using flexbox.
 - **Text Overflow:** Adjusted disclaimer box to wrap text properly.
 - **Search & Sorting Integration:** Ensured that sorting applies correctly even after filtering results.
-- **CORS Blocked Requests:** Enabled CORS in FastAPI to allow API communication.
 - **HTTP Fetch Typo:** Fixed incorrect request URL in `fetch()` to allow medicine creation.
 
 ## Evaluation
@@ -67,9 +63,11 @@ I focused on fetching data from the backend and displaying it on the frontend. U
 ✅ Implemented real-time search filtering and dynamic sorting.
 ✅ Added a modal form for adding new medicines.  
 ✅ Fixed backend communication issues (CORS and HTTP requests). 
+✅ Implemented dynamic average price updates.
+
 
 ### **Future Improvements**
 
-⏳ Add an average price calculator.
+⏳ Medicine deletion
 
 This challenge reinforced my understanding of **JavaScript, API handling, debugging, and responsive UI design**, while providing a structured approach to frontend-backend integration.
