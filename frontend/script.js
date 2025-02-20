@@ -39,3 +39,14 @@ function displayMedicines(medicines){
         listContainer.appendChild(medElement);
     });
 };
+
+function filterMedicines() {
+    const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+
+    //Filter medicines that include the search query string
+    const filteredMedicines = allMedicines.filter(med =>
+        med.name.toLowerCase().includes(searchQuery)
+    );
+
+    displayMedicines(filteredMedicines); //Update the displayed list
+}
