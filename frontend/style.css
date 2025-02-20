@@ -89,11 +89,16 @@ main {
 
 /* Sort Icon */
 .sort-icon {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    margin-left: 15px;
-    white-space: nowrap; /* Prevents text wrapping */
-    min-width: 40px; /* Ensures it stays on the same line */
+    padding: 8px 12px;
+    background: #c0c0c0;
+    border-radius: 5px;
+}
+
+.sort-icon:hover {
+    background: #c0c0c0;
 }
 
 /* Medicine List (Container for Cards) */
